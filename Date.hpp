@@ -90,10 +90,10 @@ namespace ext
 	*/
 	Date operator + (const Date date, const TimeDelta delta);
 	Date operator + (const TimeDelta delta, const Date date);
-	Date operator + (const TimeDelta delta, const TimeDelta date);
+	TimeDelta operator + (const TimeDelta delta, const TimeDelta date);
 	Date operator - (const Date date, const TimeDelta delta);
 	Date operator - (const TimeDelta delta, const Date date);
-	Date operator - (const TimeDelta delta, const TimeDelta date);
+	TimeDelta operator - (const TimeDelta delta, const TimeDelta date);
 
 	TimeDelta operator * (const TimeDelta delta, int multiplier);
 	TimeDelta operator * (int multiplier, const TimeDelta delta);
