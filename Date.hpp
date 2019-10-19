@@ -1,7 +1,5 @@
 #pragma once
 
-#pragma once
-
 namespace ext
 {
 	enum class Month
