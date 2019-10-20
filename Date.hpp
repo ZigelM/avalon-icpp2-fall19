@@ -108,17 +108,17 @@ namespace ext
 
 	/*-----Часть для домашнего задания №4-----*/
 
-	TimeDelta& operator ++ (const TimeDelta& delta);
-	TimeDelta& operator ++ (const TimeDelta& delta, int);
+	TimeDelta operator ++ (TimeDelta& delta);
+	TimeDelta operator ++ (TimeDelta& delta, int);
 
-	TimeDelta& operator -- (const TimeDelta& delta);
-	TimeDelta& operator -- (const TimeDelta& delta, int);
+	TimeDelta operator -- (TimeDelta& delta);
+	TimeDelta operator -- (TimeDelta& delta, int);
 
-	Date& operator ++ (const Date& delta);
-	Date& operator ++ (const Date& delta, int);
+	Date operator ++ (Date& delta);
+	Date operator ++ (Date& delta, int);
 
-	Date& operator -- (const Date& delta);
-	Date& operator -- (const Date& delta, int);
+	Date operator -- (Date& delta);
+	Date operator -- (Date& delta, int);
 
 	/*
 		Меняет даты местами
