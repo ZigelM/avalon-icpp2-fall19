@@ -133,22 +133,22 @@ namespace ext
 	/*
 		Возвращает ссылку на большую дату
 	*/
-	Date & max(const Date & lhs, const Date & rsh);
+	Date & max(Date & lhs, Date & rsh);
 
 	/*
 		Возвращает указатель на меньшую дату
 	*/
-	Date & min(const Date & lhs, const Date & rsh);
+	Date & min(Date & lhs, Date & rsh);
 
 	/*
 		Возвращает указатель на минимальную дату в переданном массиве дат
 	*/
-	Date & getMinDate(const Date dates[], int size);
+	Date & getMinDate(Date dates[], int size);
 
 	/*
 		Возвращает указатель на максимальную дату в переданном массиве дат
 	*/
-	Date & getMaxDate(const Date dates[], int size);
+	Date & getMaxDate(Date dates[], int size);
 
 	/*
 		Сортирует массив дат по указанному критерию
