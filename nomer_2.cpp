@@ -77,9 +77,7 @@ namespace ext
 		if ((lhs.year == rhs.year) && ((static_cast<int>(lhs.month)) == (static_cast<int>(rhs.month))) && (lhs.day == rhs.day)) {
 			return true;
 		}
-		else {
-			return false;
-		}
+		else { return false; }
 	}
 	bool operator != (const Date lhs, const Date rhs) {
 		return !(lhs == rhs);
@@ -88,17 +86,13 @@ namespace ext
 		if ((lhs.year < rhs.year) && ((static_cast<int>(lhs.month)) < (static_cast<int>(rhs.month))) && (lhs.day < rhs.day)) {
 			return true;
 		}
-		else {
-			return false;
-		}
+		else { return false; }
 	}
 	bool operator <= (const Date lhs, const Date rhs) {
 		if ((lhs.year <= rhs.year) && ((static_cast<int>(lhs.month)) <= (static_cast<int>(rhs.month))) && (lhs.day <= rhs.day)) {
 			return true;
 		}
-		else {
-			return false;
-		}
+		else { return false; }
 	}
 	bool operator > (const Date lhs, const Date rhs) {
 		return !(lhs < rhs);
@@ -107,9 +101,7 @@ namespace ext
 		if ((lhs.year >= rhs.year) && ((static_cast<int>(lhs.month)) >= (static_cast<int>(rhs.month))) && (lhs.day >= rhs.day)) {
 			return true;
 		}
-		else {
-			return false;
-		}
+		else { return false; }
 	}
 	Date ToDate(TimeDelta delta) {
 		Date xx;
