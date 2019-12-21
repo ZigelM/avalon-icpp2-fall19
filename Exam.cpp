@@ -23,7 +23,7 @@ Book buffer;
 
 int menuStr = 0;
 
-string menu_text[] = { "добавить книгу", "редактировать книгу (по id)", "искать книгу (по названию)", "просмотреть список книг", "показать статистику","выйти" };
+string menu_text[] = { "РґРѕР±Р°РІРёС‚СЊ РєРЅРёРіСѓ", "СЂРµРґР°РєС‚РёСЂРѕРІР°С‚СЊ РєРЅРёРіСѓ (РїРѕ id)", "РёСЃРєР°С‚СЊ РєРЅРёРіСѓ (РїРѕ РЅР°Р·РІР°РЅРёСЋ)", "РїСЂРѕСЃРјРѕС‚СЂРµС‚СЊ СЃРїРёСЃРѕРє РєРЅРёРі", "РїРѕРєР°Р·Р°С‚СЊ СЃС‚Р°С‚РёСЃС‚РёРєСѓ","РІС‹Р№С‚Рё" };
 ostream& operator << (ostream& out, Book book){
 	out << "Id: " << book.Id << ", Title: " << book.Title << ", Author: " 
 		<< book.Author << ", Price: " << book.Price << ", Quantity" << book.Quantity;
@@ -94,13 +94,13 @@ void add_book() {
 	system("cls");
 	cursor(true);
 
-	cout << "Введите название книги: ";
+	cout << "Р’РІРµРґРёС‚Рµ РЅР°Р·РІР°РЅРёРµ РєРЅРёРіРё: ";
 	cin >> buffer.Title;
-	cout << "Введите автора книги: ";
+	cout << "Р’РІРµРґРёС‚Рµ Р°РІС‚РѕСЂР° РєРЅРёРіРё: ";
 	cin >> buffer.Author;
-	cout << "Введите цену книги: ";
+	cout << "Р’РІРµРґРёС‚Рµ С†РµРЅСѓ РєРЅРёРіРё: ";
 	cin >> buffer.Price;
-	cout << "Введите кол-во книг: ";
+	cout << "Р’РІРµРґРёС‚Рµ РєРѕР»-РІРѕ РєРЅРёРі: ";
 	cin >> buffer.Quantity;
 
 	cursor(false);
@@ -123,7 +123,7 @@ void add_book() {
 	fout.write(reinterpret_cast<char*>(&buffer), sizeof(Book));
 	fout.close();
 }
-void redact_book(){
+void edit_book(){
 	system("cls");
 	cursor(true);
 
@@ -139,7 +139,7 @@ void redact_book(){
 	fin.close();
 
 	int ID;
-	cout << "Введите ID книги: ";
+	cout << "Р’РІРµРґРёС‚Рµ ID РєРЅРёРіРё: ";
 	cin >> ID;
 
 	Book* ptr = nullptr;
@@ -155,28 +155,28 @@ void redact_book(){
 	system("cls");
 
 	if (ptr == nullptr) {
-		cout << "Книги с названием " << ID << " не найдено" << endl;
+		cout << "РљРЅРёРіРё СЃ РЅР°Р·РІР°РЅРёРµРј " << ID << " РЅРµ РЅР°Р№РґРµРЅРѕ" << endl;
 	}
 	else {
-		cout << "ID: " << ptr->Id << endl << "Название: " << ptr->Title << endl << "Автор: "
-			<< ptr->Author << endl << "Цена: " << ptr->Price << endl << "Количество: "
+		cout << "ID: " << ptr->Id << endl << "РќР°Р·РІР°РЅРёРµ: " << ptr->Title << endl << "РђРІС‚РѕСЂ: "
+			<< ptr->Author << endl << "Р¦РµРЅР°: " << ptr->Price << endl << "РљРѕР»РёС‡РµСЃС‚РІРѕ: "
 			<< ptr->Quantity << endl;
 	}
 
-	cout << endl << "Нажмите <Enter>, чтобы изменить или <ESC>, чтобы вернуться.";
+	cout << endl << "РќР°Р¶РјРёС‚Рµ <Enter>, С‡С‚РѕР±С‹ РёР·РјРµРЅРёС‚СЊ РёР»Рё <ESC>, С‡С‚РѕР±С‹ РІРµСЂРЅСѓС‚СЊСЃСЏ.";
 	if (keyboard_controlling() == 2) { 
 		cursor(true);
 		system("cls");
-		cout << "ID: " << ptr->Id << endl << "Название: " << ptr->Title << endl << "Автор: "
-			<< ptr->Author << endl << "Цена: " << ptr->Price << endl << "Количество: "
+		cout << "ID: " << ptr->Id << endl << "РќР°Р·РІР°РЅРёРµ: " << ptr->Title << endl << "РђРІС‚РѕСЂ: "
+			<< ptr->Author << endl << "Р¦РµРЅР°: " << ptr->Price << endl << "РљРѕР»РёС‡РµСЃС‚РІРѕ: "
 			<< ptr->Quantity << endl << endl;
-		cout << "Введите название книги: ";
+		cout << "Р’РІРµРґРёС‚Рµ РЅР°Р·РІР°РЅРёРµ РєРЅРёРіРё: ";
 		cin >> ptr->Title;
-		cout << "Введите автора книги: ";
+		cout << "Р’РІРµРґРёС‚Рµ Р°РІС‚РѕСЂР° РєРЅРёРіРё: ";
 		cin >> ptr->Author;
-		cout << "Введите цену книги: ";
+		cout << "Р’РІРµРґРёС‚Рµ С†РµРЅСѓ РєРЅРёРіРё: ";
 		cin >> ptr->Price;
-		cout << "Введите кол-во книг: ";
+		cout << "Р’РІРµРґРёС‚Рµ РєРѕР»-РІРѕ РєРЅРёРі: ";
 		cin >> ptr->Quantity;
 
 		ofstream fout("books.bin", istream::out | istream::binary);
@@ -200,7 +200,7 @@ void find_book() {
 	fin.close();
 
 	string name;
-	cout << "Введите название книги: ";
+	cout << "Р’РІРµРґРёС‚Рµ РЅР°Р·РІР°РЅРёРµ РєРЅРёРіРё: ";
 	cin >> name;
 
 	Book* ptr = nullptr;
@@ -216,15 +216,15 @@ void find_book() {
 	system("cls");
 	
 	if (ptr == nullptr){
-		cout << "Книги с названием " << name << " не найдено" << endl;
+		cout << "РљРЅРёРіРё СЃ РЅР°Р·РІР°РЅРёРµРј " << name << " РЅРµ РЅР°Р№РґРµРЅРѕ" << endl;
 	}
 	else{
-		cout << "ID: " << ptr->Id << endl << "Название: " << ptr->Title << endl << "Автор: " 
-			<< ptr-> Author << endl << "Цена: " << ptr->Price << endl << "Количество: " 
+		cout << "ID: " << ptr->Id << endl << "РќР°Р·РІР°РЅРёРµ: " << ptr->Title << endl << "РђРІС‚РѕСЂ: " 
+			<< ptr-> Author << endl << "Р¦РµРЅР°: " << ptr->Price << endl << "РљРѕР»РёС‡РµСЃС‚РІРѕ: " 
 			<< ptr->Quantity << endl;
 	}
 
-	cout << endl << "Нажмите <Enter>, чтобы продолжить";
+	cout << endl << "РќР°Р¶РјРёС‚Рµ <Enter>, С‡С‚РѕР±С‹ РїСЂРѕРґРѕР»Р¶РёС‚СЊ";
 	for (;;) { if (keyboard_controlling() == 2) { break; } }
 }
 void show_list() {
@@ -242,8 +242,8 @@ void show_list() {
 	fin.close();
 
 	books = sort(books, count);
-	cout << setw(5) << left << "ID" << setw(20) << left << "Название" << setw(20) << left << "Автор"
-		<< setw(15) << left << "Цена" << "Количество" << endl 
+	cout << setw(5) << left << "ID" << setw(20) << left << "РќР°Р·РІР°РЅРёРµ" << setw(20) << left << "РђРІС‚РѕСЂ"
+		<< setw(15) << left << "Р¦РµРЅР°" << "РљРѕР»РёС‡РµСЃС‚РІРѕ" << endl 
 		<< "----------------------------------------------------------------------" << endl;
 	for (int i = 0; i < count; i++){
 		cout << setw(5) << left << books[i].Id << setw(20) << left << books[i].Title << setw(20) 
@@ -252,7 +252,7 @@ void show_list() {
 
 	cout << "----------------------------------------------------------------------";
 
-	cout << endl << "Нажмите <Enter>, чтобы продолжить";
+	cout << endl << "РќР°Р¶РјРёС‚Рµ <Enter>, С‡С‚РѕР±С‹ РїСЂРѕРґРѕР»Р¶РёС‚СЊ";
 	for (;;) { if (keyboard_controlling() == 2) { break; } }
 }
 void show_statistics() {
@@ -276,8 +276,8 @@ void show_statistics() {
 		amount += books[i].Quantity;
 		cost += books[i].Quantity * books[i].Price;
 	}
-	cout << "Общее число книг: " << amount << endl << "Стоимость всех книг: " << cost << endl;
-	cout << endl << "Нажмите <Enter>, чтобы продолжить";
+	cout << "РћР±С‰РµРµ С‡РёСЃР»Рѕ РєРЅРёРі: " << amount << endl << "РЎС‚РѕРёРјРѕСЃС‚СЊ РІСЃРµС… РєРЅРёРі: " << cost << endl;
+	cout << endl << "РќР°Р¶РјРёС‚Рµ <Enter>, С‡С‚РѕР±С‹ РїСЂРѕРґРѕР»Р¶РёС‚СЊ";
 	for (;;) { if (keyboard_controlling() == 2) { break; } }
 }
 int main(){
@@ -293,7 +293,7 @@ int main(){
 					add_book();
 					break;
 				case 1: 
-					redact_book();
+					edit_book();
 					break;
 				case 2: 
 					find_book();
